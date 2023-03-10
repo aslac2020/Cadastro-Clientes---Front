@@ -15,6 +15,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class RegisterPeopleComponent implements OnInit{
     formRegisterPeople!: FormGroup
     dataCep!: CEP
+    isCpfDuplicaded: boolean = false;
     isformEdit: boolean = false;
 
   constructor(
@@ -56,10 +57,16 @@ export class RegisterPeopleComponent implements OnInit{
 
   registerPeople(){
     const client = this.formRegisterPeople.getRawValue() as People;
+
+    if(this.isCpfDuplicaded == true){
+      this.openSnackBar("Já existe usuário cadastrado com esse cpf, por favor cadastrar com outro cpf")
+      return;
+    }
     this.peopleService.registerPeople(client).subscribe((data: People) => {
       console.log(data);
       this.openSnackBar('Cliente Cadastrado com sucesso :)')
       this.formRegisterPeople.reset();
+      this.router.navigate(['']);
     }, error => this.openSnackBar('Erro ao cadastrar o cliente :('))
   }
 
@@ -79,6 +86,20 @@ export class RegisterPeopleComponent implements OnInit{
       email: this.formRegisterPeople.get('email')?.value,
 
     })
+  }
+
+  isExistsCpf(){
+    const cpfValue = this.formRegisterPeople.getRawValue() as People;
+    this.peopleService.isExistsCpf(cpfValue.cpf).subscribe((data: any) => {
+      if(data == true){
+        this.openSnackBar('Já existe um usuario cadastrado com esse CPF, favor cadastrar com outro CPF')
+        this.isCpfDuplicaded = true;
+      }else {
+        this.isCpfDuplicaded = false
+      }
+    })
+
+
   }
 
   openSnackBar(message: string) {

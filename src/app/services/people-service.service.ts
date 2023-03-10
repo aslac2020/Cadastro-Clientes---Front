@@ -19,4 +19,8 @@ export class PeopleServiceService {
   registerPeople(client: People):Observable<People>{
     return this.http.post<People>(`${API_URL}/Pessoa`, client)
   }
+
+  isExistsCpf(cpf: string){
+    return this.http.get(`${API_URL}/Pessoa/cpf/${cpf}`)
+  }
 }
