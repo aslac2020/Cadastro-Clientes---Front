@@ -1,6 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {People} from "../Models/People";
+import {CepServicesService} from "../services/cep-services.service";
+import {CEP} from "../Models/Cep";
+import {PeopleServiceService} from "../services/people-service.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-sign-people',
@@ -9,11 +14,15 @@ import {Router} from "@angular/router";
 })
 export class RegisterPeopleComponent implements OnInit{
     formRegisterPeople!: FormGroup
+    dataCep!: CEP
     isformEdit: boolean = false;
 
   constructor(
     private builder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private cepService: CepServicesService,
+    private peopleService: PeopleServiceService,
+    private snackBar: MatSnackBar
   ) {
     this.createFormBlank()
   }
@@ -35,5 +44,47 @@ export class RegisterPeopleComponent implements OnInit{
         logradouro: ['', [Validators.required]],
       })
   }
+
+  searchCep(){
+    const cepModel = this.formRegisterPeople.getRawValue() as People;
+    console.log(cepModel.cep)
+    this.cepService.getCepNumber(cepModel.cep).subscribe( (data: CEP) => {
+      console.log(data)
+      this.populateFormAddress(data)
+    })
+  }
+
+  registerPeople(){
+    const client = this.formRegisterPeople.getRawValue() as People;
+    this.peopleService.registerPeople(client).subscribe((data: People) => {
+      console.log(data);
+      this.openSnackBar('Cliente Cadastrado com sucesso :)')
+      this.formRegisterPeople.reset();
+    }, error => this.openSnackBar('Erro ao cadastrar o cliente :('))
+  }
+
+  populateFormAddress(dados: CEP | any){
+    this.formRegisterPeople.setValue({
+      cep: dados.cep,
+      estado: dados.uf,
+      cidade: dados.localidade,
+      logradouro: dados.logradouro,
+
+
+      nome: this.formRegisterPeople.get('nome')?.value,
+      sobrenome: this.formRegisterPeople.get('sobrenome')?.value,
+      nacionalidade: this.formRegisterPeople.get('nacionalidade')?.value,
+      cpf: this.formRegisterPeople.get('cpf')?.value,
+      telefone: this.formRegisterPeople.get('telefone')?.value,
+      email: this.formRegisterPeople.get('email')?.value,
+
+    })
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, '', { duration: 3000});
+  }
+
+
 
 }

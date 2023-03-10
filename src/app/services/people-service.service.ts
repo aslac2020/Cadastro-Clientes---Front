@@ -15,4 +15,8 @@ export class PeopleServiceService {
   getAllPeoples(): Observable<People[]> {
     return this.http.get<People[]>(`${API_URL}/Pessoa`);
   }
+
+  registerPeople(client: People):Observable<People>{
+    return this.http.post<People>(`${API_URL}/Pessoa`, client)
+  }
 }

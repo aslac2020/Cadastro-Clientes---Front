@@ -13,6 +13,6 @@ export class CepServicesService {
   constructor(private http: HttpClient) { }
 
   getCepNumber(cep: string): Observable<CEP>{
-    return this.http.get<CEP>(`${API_URL}/${cep}/json/`)
+    return this.http.get<CEP>(`${API_URL}${cep}/json/`)
   }
 }

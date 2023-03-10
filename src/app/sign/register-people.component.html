@@ -5,6 +5,8 @@
     </mat-toolbar>
     <div class="register">
       <form [formGroup]="formRegisterPeople">
+
+        <div class="registerName">
           <mat-form-field appearance="outline" class="form-field-full inputName">
             <mat-label>Nome</mat-label>
             <input class="teste"  type="text" onch matInput formControlName="nome" placeholder="Ex. perukas@example.com">
@@ -16,7 +18,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field appearance="outline" class="form-field-full">
+          <mat-form-field appearance="outline" class="form-field-full inputSobrenome">
             <mat-label>Sobrenome</mat-label>
             <input class="teste"  type="text" maxlength="14" onch matInput formControlName="sobrenome" placeholder="Ex. 999.999.999-99">
             <mat-error *ngIf="formRegisterPeople.get('sobrenome')?.hasError('sobrenome') && formRegisterPeople.get('sobrenome')?.touched">
@@ -26,10 +28,13 @@
               Campo Sobrenome é <strong>obrigatório</strong>
             </mat-error>
           </mat-form-field>
+        </div>
 
+
+          <div class="registerCpf">
           <mat-form-field  appearance="outline" class="form-field-full inputNacionalidade">
             <mat-label>Nacionalidade</mat-label>
-            <input  class="teste"  type="text"  onch matInput formControlName="sobrenome" placeholder="Ex. brasileiro">
+            <input  class="teste"  type="text"  onch matInput formControlName="nacionalidade" placeholder="Ex. brasileiro">
             <mat-error *ngIf="formRegisterPeople.get('nacionalidade')?.hasError('nacionalidade') && formRegisterPeople.get('nacionalidade')?.touched">
               Por favor informe um Sobrenome válido
             </mat-error>
@@ -38,9 +43,9 @@
             </mat-error>
           </mat-form-field>
 
-        <mat-form-field appearance="outline" class="form-field-full">
+        <mat-form-field appearance="outline" class="form-field-full inputCpf">
           <mat-label>Cpf</mat-label>
-          <input class="teste"  type="text" maxlength="14" onch matInput formControlName="nome" placeholder="Ex. 999.999.999-99">
+          <input class="teste"  type="text" maxlength="14" onch matInput formControlName="cpf" placeholder="Ex. 999.999.999-99">
           <mat-error *ngIf="formRegisterPeople.get('cpf')?.hasError('cpf') && formRegisterPeople.get('cpf')?.touched">
             Por favor informe um cpf válido
           </mat-error>
@@ -48,10 +53,11 @@
             Campo CPF é <strong>obrigatório</strong>
           </mat-error>
         </mat-form-field>
+          </div>
 
           <mat-form-field appearance="outline" class="form-field-full">
             <mat-label>Cep</mat-label>
-            <input style="width: 100px" class="teste"  type="text" maxlength="9" onch matInput formControlName="nome" placeholder="Ex. 07721-105">
+            <input style="width: 100px" class="teste"  type="text" maxlength="9" onch matInput formControlName="cep" (change)="searchCep()" placeholder="Ex. 07721-105">
             <mat-error *ngIf="formRegisterPeople.get('cep')?.hasError('cep') && formRegisterPeople.get('cep')?.touched">
               Por favor informe um Cep válido
             </mat-error>
@@ -60,7 +66,20 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field appearance="outline" class="form-field-full">
+        <mat-form-field appearance="outline" class="form-field-full">
+          <mat-label>Logradouro</mat-label>
+          <input class="teste"  type="text"  onch matInput formControlName="logradouro" placeholder="Ex. 999.999.999-99">
+          <mat-error *ngIf="formRegisterPeople.get('logradouro')?.hasError('logradouro') && formRegisterPeople.get('logradouro')?.touched">
+            Por favor Logradouro um cpf válido
+          </mat-error>
+          <mat-error *ngIf="formRegisterPeople.get('logradouro')?.hasError('cpf') && formRegisterPeople.get('logradouro')?.touched">
+            Campo Logradouro é <strong>obrigatório</strong>
+          </mat-error>
+        </mat-form-field>
+
+
+        <div class="registerEmail">
+        <mat-form-field appearance="outline" class="form-field-full">
             <mat-label>Estado</mat-label>
             <input class="teste"  type="text"  onch matInput formControlName="estado" placeholder="Ex. São Paulo">
             <mat-error *ngIf="formRegisterPeople.get('estado')?.hasError('estado') && formRegisterPeople.get('estado')?.touched">
@@ -71,7 +90,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field appearance="outline" class="form-field-full">
+          <mat-form-field appearance="outline" class="form-field-full inputCidade">
             <mat-label>Cidade</mat-label>
             <input class="teste"  type="text"  onch matInput formControlName="cidade" placeholder="Ex. 999.999.999-99">
             <mat-error *ngIf="formRegisterPeople.get('cidade')?.hasError('cidade') && formRegisterPeople.get('cidade')?.touched">
@@ -81,22 +100,14 @@
               Campo Cidade é <strong>obrigatório</strong>
             </mat-error>
           </mat-form-field>
+        </div>
 
-        <mat-form-field appearance="outline" class="form-field-full">
-          <mat-label>Logradouro</mat-label>
-          <input class="teste"  type="text"  onch matInput formControlName="nome" placeholder="Ex. 999.999.999-99">
-          <mat-error *ngIf="formRegisterPeople.get('logradouro')?.hasError('logradouro') && formRegisterPeople.get('logradouro')?.touched">
-            Por favor Logradouro um cpf válido
-          </mat-error>
-          <mat-error *ngIf="formRegisterPeople.get('logradouro')?.hasError('cpf') && formRegisterPeople.get('logradouro')?.touched">
-            Campo Logradouro é <strong>obrigatório</strong>
-          </mat-error>
-        </mat-form-field>
+
 
         <div class="registerAddress">
           <mat-form-field appearance="outline" class="form-field-full">
             <mat-label>E-mail</mat-label>
-            <input class="teste"  type="email"  onch matInput formControlName="nome" placeholder="Ex. 999.999.999-99">
+            <input class="teste"  type="email"  onch matInput formControlName="email" placeholder="Ex. 999.999.999-99">
             <mat-error *ngIf="formRegisterPeople.get('email')?.hasError('email') && formRegisterPeople.get('email')?.touched">
               Por favor E-mail um cpf válido
             </mat-error>
@@ -105,9 +116,9 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field appearance="outline" class="form-field-full">
+          <mat-form-field appearance="outline" class="form-field-full inputTelefone">
             <mat-label>Telefone</mat-label>
-            <input class="teste"  type="email"  onch matInput formControlName="nome" placeholder="Ex. 999.999.999-99">
+            <input class="teste"  type="email"  onch matInput formControlName="telefone" placeholder="Ex. 999.999.999-99">
             <mat-error *ngIf="formRegisterPeople.get('telefone')?.hasError('telefone') && formRegisterPeople.get('telefone')?.touched">
               Por favor Telefone um cpf válido
             </mat-error>
@@ -118,8 +129,8 @@
         </div>
 
         <div class="buttons">
-          <button mat-button style="background-color: brown; color: white">SALVAR</button>
-          <button mat-button>VOLTAR</button>
+          <button [disabled]="formRegisterPeople.invalid" (click)="registerPeople()" mat-button style="background-color: steelblue; color: white; width: 200px">SALVAR</button>
+          <button mat-button style="background-color: gray; color: white; width: 200px; margin-left: 10px">VOLTAR</button>
         </div>
 
       </form>

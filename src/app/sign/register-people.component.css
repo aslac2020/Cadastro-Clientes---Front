@@ -9,7 +9,7 @@
 }
 .example-card {
   width: 85vw;
-  height: 870px;
+  height: 100%
 }
 
 .register{
@@ -18,7 +18,7 @@
 }
 
 mat-form-field{
-  width: 100%;
+  width: 90%;
 }
 
 .buttons{
@@ -28,6 +28,45 @@ mat-form-field{
   justify-content: center;
   margin: 5px;
 }
+
+.registerName{
+  display: flex;
+  flex-direction: row;
+}
+
+.registerCpf{
+  display: flex;
+  flex-direction: row;
+}
+
+.registerAddress{
+  display: flex;
+  flex-direction: row;
+}
+
+.registerEmail{
+  display: flex;
+  flex-direction: row;
+}
+
+.inputSobrenome{
+  margin-left: 5px;
+}
+
+.inputCpf{
+  margin-left: 5px;
+}
+
+.inputTelefone{
+  margin-left: 5px;
+}
+
+.inputCidade{
+  margin-left: 5px;
+}
+
+
+
 
 
 
