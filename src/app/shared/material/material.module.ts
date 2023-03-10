@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {FormsModule} from "@angular/forms";
 import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -15,7 +17,9 @@ import {MatCardModule} from '@angular/material/card';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    FormsModule
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class MaterialModule { }
