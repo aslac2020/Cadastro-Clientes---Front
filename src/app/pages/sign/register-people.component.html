@@ -130,7 +130,7 @@
 
         <div class="buttons">
           <button [disabled]="formRegisterPeople.invalid" (click)="registerPeople()" mat-button style="background-color: steelblue; color: white; width: 200px">SALVAR</button>
-          <button mat-button style="background-color: gray; color: white; width: 200px; margin-left: 10px">VOLTAR</button>
+          <button [routerLink]="['']" mat-button style="background-color: gray; color: white; width: 200px; margin-left: 10px">VOLTAR</button>
         </div>
 
       </form>

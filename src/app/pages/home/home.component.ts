@@ -1,9 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
-import {People} from "../Models/People";
+import {People} from "../../models/People";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";;
-import {PeopleServiceService} from "../services/people-service.service";
+import {PeopleServiceService} from "../../services/people-service.service";
 import {Router} from "@angular/router";
 
 
@@ -43,7 +43,11 @@ export class HomeComponent implements OnInit{
   }
 
   navigationToSign(){
-    this.router.navigate(['sign'])
+    this.router.navigate(['register'])
+  }
+
+  visualizedPeople(id: number){
+    this.router.navigate(['view/', id])
   }
 
 

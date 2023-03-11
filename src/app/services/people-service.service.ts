@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {People} from "../Models/People";
+import {People} from "../models/People";
 import * as http from "http";
 
 const API_URL = 'https://localhost:7024/api'
@@ -14,6 +14,10 @@ export class PeopleServiceService {
 
   getAllPeoples(): Observable<People[]> {
     return this.http.get<People[]>(`${API_URL}/Pessoa`);
+  }
+
+  getPeopleById(id: number): Observable<People>{
+    return this.http.get<People>(`${API_URL}/Pessoa/${id}`)
   }
 
   registerPeople(client: People):Observable<People>{

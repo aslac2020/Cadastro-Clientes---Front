@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {People} from "../Models/People";
-import {CepServicesService} from "../services/cep-services.service";
-import {CEP} from "../Models/Cep";
-import {PeopleServiceService} from "../services/people-service.service";
+import {People} from "../../models/People";
+import {CepServicesService} from "../../services/cep-services.service";
+import {CEP} from "../../models/Cep";
+import {PeopleServiceService} from "../../services/people-service.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({

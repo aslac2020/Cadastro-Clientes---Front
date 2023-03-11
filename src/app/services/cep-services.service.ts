@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {CEP} from "../Models/Cep";
+import {CEP} from "../models/Cep";
 
 const API_URL = 'https://viacep.com.br/ws/'
 
