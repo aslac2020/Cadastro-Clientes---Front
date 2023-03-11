@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit{
   clients!: People[]
   displayedColumns: string[] = ['nome', 'cpf', 'email', 'telefone', 'actions'];
   dataSource!: MatTableDataSource<People>;
-
+  isHavePeoples: boolean = false;
   id: number = 0;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator
@@ -40,12 +40,23 @@ export class HomeComponent implements OnInit{
   getAllPeoples(){
     this.peopleService.getAllPeoples().subscribe(
       (data: People[]) => {
-        console.log(data)
+        if(this.dataSource.data.length < 1){
+          alert('cai aqui')
+          this.isHavePeoples = false;
+          return;
+        }
       this.clients = data;
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort
-    }, error => console.log(error));
+        this.isHavePeoples = true
+    }, (error)  => {
+        this.clients = [];
+        this.isHavePeoples = false;
+        console.log(error);
+      }
+
+    );
   }
 
   navigationToSign(){
