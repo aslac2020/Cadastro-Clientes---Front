@@ -20,7 +20,7 @@
 
           <mat-form-field appearance="outline" class="form-field-full inputSobrenome">
             <mat-label>Sobrenome</mat-label>
-            <input class="teste"  type="text" maxlength="14" onch matInput formControlName="sobrenome" placeholder="Ex. 999.999.999-99">
+            <input class="teste"  type="text" maxlength="14" onch matInput formControlName="sobrenome" placeholder="Ex. Lacerda">
             <mat-error *ngIf="formEditPeople.get('sobrenome')?.hasError('sobrenome') && formEditPeople.get('sobrenome')?.touched">
               Por favor informe um Sobrenome válido
             </mat-error>
