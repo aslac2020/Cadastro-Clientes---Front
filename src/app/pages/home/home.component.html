@@ -55,6 +55,7 @@
         <mat-icon>list_alt</mat-icon>
       </button>
       <button
+        (click)="editPeople(people.id)"
         color="primary"
         mat-mini-fab
         aria-label="Alterar"
@@ -62,6 +63,7 @@
         <mat-icon>create</mat-icon>
       </button>
       <button
+        (click)="deletePeople(people.id)"
         color="primary"
         mat-mini-fab
         aria-label="Deletar"

@@ -27,4 +27,8 @@ export class PeopleServiceService {
   isExistsCpf(cpf: string){
     return this.http.get(`${API_URL}/Pessoa/cpf/${cpf}`)
   }
+
+  updatePeople(people: People, id: number):Observable<People>{
+    return this.http.put<People>(`${API_URL}/Pessoa/${id}`, people)
+  }
 }

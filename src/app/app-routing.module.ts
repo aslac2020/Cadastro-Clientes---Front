@@ -4,6 +4,7 @@ import * as path from "path";
 import {HomeComponent} from "./pages/home/home.component";
 import {RegisterPeopleComponent} from "./pages/sign/register-people.component";
 import {ViewPeopleComponent} from "./pages/view-people/view-people.component";
+import {EditPeopleComponent} from "./pages/edit-people/edit-people.component";
 
 const routes: Routes = [
 
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'view/:id',
     component: ViewPeopleComponent
+  },
+  {
+    path: 'edit/:id',
+    component: EditPeopleComponent
   }
 
 ];

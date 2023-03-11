@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Aviso</h1>
+<div mat-dialog-content>
+  {{data.msg}}
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Fechar</button>
+  <button (click)="callApiPeople()" mat-button  cdkFocusInitial style="background-color: steelblue; color: white">Confirmar</button>
+</div>

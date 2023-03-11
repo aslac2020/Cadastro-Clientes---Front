@@ -5,6 +5,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";;
 import {PeopleServiceService} from "../../services/people-service.service";
 import {Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
 
 
 @Component({
@@ -23,7 +24,8 @@ export class HomeComponent implements OnInit{
 
   constructor(
     private peopleService: PeopleServiceService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
 
   ){}
 
@@ -54,6 +56,15 @@ export class HomeComponent implements OnInit{
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  }
+
+  editPeople(id: number) {
+   this.router.navigate(['edit/', id])
+
+  }
+
+  deletePeople(id: number) {
 
   }
 }
