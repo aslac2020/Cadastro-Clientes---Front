@@ -31,4 +31,8 @@ export class PeopleServiceService {
   updatePeople(people: People, id: number):Observable<People>{
     return this.http.put<People>(`${API_URL}/Pessoa/${id}`, people)
   }
+
+  deletePeople(id: number){
+    return this.http.delete(`${API_URL}/Pessoa/${id}`)
+  }
 }

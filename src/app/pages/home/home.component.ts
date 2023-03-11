@@ -6,6 +6,7 @@ import {MatSort} from "@angular/material/sort";;
 import {PeopleServiceService} from "../../services/people-service.service";
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
+import {DialogComponent} from "../../components/dialog/dialog.component";
 
 
 @Component({
@@ -19,11 +20,14 @@ export class HomeComponent implements OnInit{
   displayedColumns: string[] = ['nome', 'cpf', 'email', 'telefone', 'actions'];
   dataSource!: MatTableDataSource<People>;
 
+  id: number = 0;
+
   @ViewChild(MatPaginator) paginator!: MatPaginator
   @ViewChild(MatSort) sort!: MatSort
 
   constructor(
     private peopleService: PeopleServiceService,
+
     private router: Router,
     private dialog: MatDialog
 
@@ -66,5 +70,13 @@ export class HomeComponent implements OnInit{
 
   deletePeople(id: number) {
 
+    let msg = "Deseja excluir esse usuário?";
+    let isDelete = true;
+
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '400px',
+      height: '200px',
+      data: {msg:msg, id: id, isScreenDelete: isDelete }
+    })
   }
 }
