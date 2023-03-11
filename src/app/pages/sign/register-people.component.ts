@@ -17,6 +17,8 @@ export class RegisterPeopleComponent implements OnInit{
     dataCep!: CEP
     isCpfDuplicaded: boolean = false;
     isformEdit: boolean = false;
+    cpfDigited!: string;
+
 
   constructor(
     private builder: FormBuilder,
@@ -34,7 +36,7 @@ export class RegisterPeopleComponent implements OnInit{
   createFormBlank(){
       this.formRegisterPeople = this.builder.group({
         nome: ['', [Validators.required]],
-        cpf:  new FormControl('999.999.999-99'),
+        cpf:  ['', Validators.required],
         sobrenome: ['', [Validators.required]],
         nacionalidade: ['', [Validators.required]],
         email: ['', [Validators.required, Validators.email]],
@@ -105,7 +107,5 @@ export class RegisterPeopleComponent implements OnInit{
   openSnackBar(message: string) {
     this.snackBar.open(message, '', { duration: 3000});
   }
-
-
 
 }

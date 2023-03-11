@@ -45,7 +45,7 @@
 
         <mat-form-field appearance="outline" class="form-field-full inputCpf">
           <mat-label>Cpf</mat-label>
-          <input class="teste"  type="text" maxlength="14" onch matInput formControlName="cpf" (change)="isExistsCpf()" placeholder="Ex. 999.999.999-99">
+          <input class="teste"  type="text"  maxlength="14"  onch matInput  formControlName="cpf" (change)="isExistsCpf()" placeholder="Ex. 999.999.999-99">
           <mat-error *ngIf="formRegisterPeople.get('cpf')?.hasError('cpf') && formRegisterPeople.get('cpf')?.touched">
             Por favor informe um cpf válido
           </mat-error>
@@ -57,7 +57,7 @@
 
           <mat-form-field appearance="outline" class="form-field-full">
             <mat-label>Cep</mat-label>
-            <input style="width: 100px" class="teste"  type="text" maxlength="9" onch matInput formControlName="cep" (change)="searchCep()" placeholder="Ex. 07721-105">
+            <input style="width: 100px" class="teste"  type="text" maxlength="9"  onch matInput formControlName="cep" (change)="searchCep()" placeholder="Ex. 07721-105">
             <mat-error *ngIf="formRegisterPeople.get('cep')?.hasError('cep') && formRegisterPeople.get('cep')?.touched">
               Por favor informe um Cep válido
             </mat-error>
@@ -120,7 +120,7 @@
             <mat-label>Telefone</mat-label>
             <input class="teste"  type="email"  onch matInput formControlName="telefone" placeholder="Ex. 999.999.999-99">
             <mat-error *ngIf="formRegisterPeople.get('telefone')?.hasError('telefone') && formRegisterPeople.get('telefone')?.touched">
-              Por favor Telefone um cpf válido
+              Por favor digite Telefone um  válido
             </mat-error>
             <mat-error *ngIf="formRegisterPeople.get('telefone')?.hasError('telefone') && formRegisterPeople.get('telefone')?.touched">
               Campo Telefone é <strong>obrigatório</strong>

@@ -1,5 +1,5 @@
 <div class="container">
-  <mat-card class="example-card mat-elevation-z8" *ngIf="clients != null">
+  <mat-card class="example-card mat-elevation-z8" *ngIf="isHavePeoples == true">
     <mat-toolbar>
       <span>Lista de Clientes</span>
       <button
@@ -83,7 +83,7 @@
     </table>
   </mat-card>
 
-  <mat-card class="example-card mat-elevation-z8" *ngIf="clients == null">
+  <mat-card class="example-card mat-elevation-z8" *ngIf="isHavePeoples == false">
   <div class="text-center" >
     <mat-toolbar>
       <span>Aviso</span>

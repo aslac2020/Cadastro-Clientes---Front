@@ -13,7 +13,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ViewPeopleComponent } from './pages/view-people/view-people.component';
 import { EditPeopleComponent } from './pages/edit-people/edit-people.component';
 import { DialogComponent } from './components/dialog/dialog.component';
-import {MatDialogRef} from "@angular/material/dialog";
+
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import {MatDialogRef} from "@angular/material/dialog";
     RegisterPeopleComponent,
     ViewPeopleComponent,
     EditPeopleComponent,
-    DialogComponent
+    DialogComponent,
   ],
   imports: [
     BrowserModule,

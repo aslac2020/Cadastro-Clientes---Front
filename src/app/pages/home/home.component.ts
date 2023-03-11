@@ -40,8 +40,7 @@ export class HomeComponent implements OnInit{
   getAllPeoples(){
     this.peopleService.getAllPeoples().subscribe(
       (data: People[]) => {
-        if(this.dataSource.data.length < 1){
-          alert('cai aqui')
+        if(data.length < 1){
           this.isHavePeoples = false;
           return;
         }
@@ -51,8 +50,6 @@ export class HomeComponent implements OnInit{
       this.dataSource.sort = this.sort
         this.isHavePeoples = true
     }, (error)  => {
-        this.clients = [];
-        this.isHavePeoples = false;
         console.log(error);
       }
 
