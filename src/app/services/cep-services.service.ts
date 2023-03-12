@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 import {CEP} from "../models/Cep";
 
 const API_URL = 'https://viacep.com.br/ws/'
@@ -12,7 +12,16 @@ export class CepServicesService {
 
   constructor(private http: HttpClient) { }
 
-  getCepNumber(cep: string): Observable<CEP>{
-    return this.http.get<CEP>(`${API_URL}${cep}/json/`)
+  getCepNumber(cep: string){
+    cep = cep.replace(/\D/g, '');
+
+    if(cep != ''){
+      const validacep = /^[0-9]{8}$/;
+      if(validacep.test(cep)){
+        return this.http.get(`${API_URL}${cep}/json/`)
+      }
+    }
+    return of({});
   }
 }
+

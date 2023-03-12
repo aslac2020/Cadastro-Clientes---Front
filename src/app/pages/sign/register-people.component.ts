@@ -51,7 +51,7 @@ export class RegisterPeopleComponent implements OnInit{
   searchCep(){
     const cepModel = this.formRegisterPeople.getRawValue() as People;
     console.log(cepModel.cep)
-    this.cepService.getCepNumber(cepModel.cep).subscribe( (data: CEP) => {
+    this.cepService.getCepNumber(cepModel.cep).subscribe( data => {
       console.log(data)
       this.populateFormAddress(data)
     })

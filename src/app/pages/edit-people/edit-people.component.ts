@@ -96,7 +96,7 @@ export class EditPeopleComponent implements OnInit{
 
   searchCep() {
     const cepNumber = this.formEditPeople.getRawValue() as People
-      this.cepService.getCepNumber(cepNumber.cep).subscribe((data: CEP) => {
+      this.cepService.getCepNumber(cepNumber.cep).subscribe(data => {
         this.populateDataCep(data)
       })
   }
