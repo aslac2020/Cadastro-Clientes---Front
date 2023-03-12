@@ -45,16 +45,16 @@ export class EditPeopleComponent implements OnInit{
 
   createFormBlak(){
     this.formEditPeople = this.builder.group({
-      nome: [''],
-      sobrenome: [''],
-      nacionalidade: [''],
+      nome: ['', Validators.required],
+      sobrenome: ['', Validators.required],
+      nacionalidade: ['', Validators.required],
       cpf: new FormControl({value: null, disabled: true}),
-      email: [''],
-      telefone: [''],
-      cep: [''],
-      logradouro: [''],
-      cidade: [''],
-      estado: [''],
+      email: ['', Validators.required],
+      telefone: ['', Validators.required],
+      cep: ['', Validators.required],
+      logradouro: ['', Validators.required],
+      cidade: ['', Validators.required],
+      estado: ['', Validators.required],
     })
   }
 
@@ -84,11 +84,14 @@ export class EditPeopleComponent implements OnInit{
     })
   }
 
-  populateDataCep(cep: CEP){
-    this.formEditPeople.controls['cep'].setValue(cep.cep)
-    this.formEditPeople.controls['logradouro'].setValue(cep.logradouro)
-    this.formEditPeople.controls['cidade'].setValue(cep.localidade)
-    this.formEditPeople.controls['estado'].setValue(cep.uf)
+  populateDataCep(dados: CEP | any) {
+    this.formEditPeople.patchValue({
+      cep: dados.cep,
+      logradouro: dados.logradouro,
+      cidade: dados.localidade,
+      estado: dados.uf
+
+    })
   }
 
   searchCep() {
