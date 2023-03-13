@@ -19,6 +19,7 @@ export class RegisterPeopleComponent implements OnInit{
     isformEdit: boolean = false;
     cpfDigited!: string;
 
+    public cpfMask  = [ /\d/ , /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/ , /\d/, /\d/, '-', /\d/, /\d/,];
 
   constructor(
     private builder: FormBuilder,

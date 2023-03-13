@@ -36,7 +36,7 @@
 
         <mat-form-field appearance="outline" class="form-field-full inputCpf">
           <mat-label>Cpf</mat-label>
-          <input class="teste"  type="text"  maxlength="14"  onch matInput  formControlName="cpf" (change)="isExistsCpf()" placeholder="Ex. 999.999.999-99">
+          <input class="teste"  type="text"  [textMask]="{mask: cpfMask }"  matInput  formControlName="cpf" (change)="isExistsCpf()" placeholder="Ex. 999.999.999-99">
           <mat-error *ngIf="formRegisterPeople.get('cpf')?.hasError('cpf') || formRegisterPeople.get('cpf')?.touched">
             Campo CPF é <strong>obrigatório</strong>
           </mat-error>

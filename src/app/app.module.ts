@@ -13,6 +13,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ViewPeopleComponent } from './pages/view-people/view-people.component';
 import { EditPeopleComponent } from './pages/edit-people/edit-people.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import {TextMaskModule} from "angular2-text-mask";
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     MaterialModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TextMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]
