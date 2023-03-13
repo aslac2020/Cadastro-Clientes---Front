@@ -20,6 +20,7 @@ export class RegisterPeopleComponent implements OnInit{
     cpfDigited!: string;
 
     public cpfMask  = [ /\d/ , /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/ , /\d/, /\d/, '-', /\d/, /\d/,];
+    public cepMask   = [/\d/ , /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
 
   constructor(
     private builder: FormBuilder,

@@ -45,7 +45,7 @@
 
           <mat-form-field appearance="outline" class="form-field-full">
             <mat-label>Cep</mat-label>
-            <input class="teste"  type="text" maxlength="8"  onch matInput formControlName="cep" (change)="searchCep()" placeholder="Ex. 07721-105">
+            <input class="teste"  type="text"  [textMask]="{mask: cepMask }"  onch matInput formControlName="cep" (change)="searchCep()" placeholder="Ex. 07721-105">
             <mat-error *ngIf="formRegisterPeople.get('cep')?.hasError('cep') || formRegisterPeople.get('cep')?.touched">
               Campo Cep é <strong>obrigatório</strong>
             </mat-error>
