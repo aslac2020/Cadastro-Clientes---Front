@@ -21,6 +21,10 @@ export class EditPeopleComponent implements OnInit{
 
   dataPeople!: People
 
+  public cpfMask  = [ /\d/ , /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/ , /\d/, /\d/, '-', /\d/, /\d/,];
+  public cepMask  = [/\d/ , /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
+  public phoneMask =  ['(', /[1-9]/, /\d/, ')', ' ', /\d/ , /\d/ , /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+
   constructor(
     private peopleService: PeopleServiceService,
     private cepService: CepServicesService,

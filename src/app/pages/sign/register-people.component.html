@@ -91,7 +91,7 @@
 
           <mat-form-field appearance="outline" class="form-field-full inputTelefone">
             <mat-label>Telefone</mat-label>
-            <input class="teste"  type="email"  onch matInput formControlName="telefone" placeholder="Ex. 999.999.999-99">
+            <input class="teste"  type="text" [textMask]="{mask: phoneMask }"  onch matInput formControlName="telefone" placeholder="Ex. 999.999.999-99">
             <mat-error *ngIf="formRegisterPeople.get('telefone')?.hasError('telefone') || formRegisterPeople.get('telefone')?.touched">
               Campo Telefone é <strong>obrigatório</strong>
             </mat-error>

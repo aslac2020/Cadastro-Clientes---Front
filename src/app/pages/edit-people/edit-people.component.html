@@ -36,7 +36,7 @@
 
           <mat-form-field appearance="outline" class="form-field-full inputCpf">
             <mat-label>Cpf</mat-label>
-            <input class="teste"  type="text" maxlength="14" onch matInput formControlName="cpf" placeholder="Ex. 999.999.999-99">
+            <input class="teste"  type="text" [textMask]="{mask: cpfMask }"  onch matInput formControlName="cpf" placeholder="Ex. 999.999.999-99">
             <mat-error *ngIf="formEditPeople.get('cpf')?.hasError('cpf') || formEditPeople.get('cpf')?.touched">
               Campo CPF é <strong>obrigatório</strong>
             </mat-error>
@@ -45,7 +45,7 @@
 
         <mat-form-field appearance="outline" class="form-field-full">
           <mat-label>Cep</mat-label>
-          <input style="width: 100px" class="teste"  type="text" maxlength="8" onch matInput formControlName="cep" (change)="searchCep()" placeholder="Ex. 07721-105">
+          <input style="width: 100px" class="teste"  [textMask]="{mask: cepMask }"  type="text"  onch matInput formControlName="cep" (change)="searchCep()" placeholder="Ex. 07721-105">
           <mat-error *ngIf="formEditPeople.get('cep')?.hasError('cep') || formEditPeople.get('cep')?.touched">
             Campo Cep é <strong>obrigatório</strong>
           </mat-error>
@@ -89,7 +89,7 @@
 
           <mat-form-field appearance="outline" class="form-field-full inputTelefone">
             <mat-label>Telefone</mat-label>
-            <input class="teste"  type="email"  onch matInput formControlName="telefone" placeholder="Ex. 999.999.999-99">
+            <input class="teste"  type="text" [textMask]="{mask: phoneMask }"  onch matInput formControlName="telefone" placeholder="Ex. 999.999.999-99">
             <mat-error *ngIf="formEditPeople.get('telefone')?.hasError('telefone') || formEditPeople.get('telefone')?.touched">
               Campo Telefone é <strong>obrigatório</strong>
             </mat-error>
